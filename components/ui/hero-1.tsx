@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { SparklesIcon, ArrowRightIcon, UploadIcon } from "lucide-react";
-import { LogoCloud } from "@/components/ui/logo-cloud-3";
 
 export function HeroSection() {
   return (
@@ -79,26 +78,36 @@ export function HeroSection() {
   );
 }
 
-export function LogosSection() {
+const stats = [
+  { value: "10K+", label: "Contracts analyzed" },
+  { value: "30s", label: "Average analysis time" },
+  { value: "98%", label: "Clause accuracy" },
+  { value: "4.9", label: "Average user rating" },
+];
+
+export function StatsSection() {
   return (
-    <section className="relative space-y-4 border-t pt-6 pb-10">
-      <h2 className="text-center text-lg font-medium tracking-tight text-muted-foreground md:text-xl">
-        Trusted by people from <span className="text-foreground">leading teams</span>
-      </h2>
-      <div className="relative z-10 mx-auto max-w-4xl">
-        <LogoCloud logos={logos} />
+    <section className="relative border-t pt-10 pb-14">
+      <div className="mx-auto max-w-5xl px-4">
+        <h2 className="text-center text-lg font-medium tracking-tight text-muted-foreground md:text-xl">
+          Trusted by people <span className="text-foreground">solving real contracts</span>
+        </h2>
+        <div className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-px overflow-hidden border bg-border md:grid-cols-4">
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="flex flex-col items-center justify-center bg-background px-4 py-8"
+            >
+              <div className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+                {stat.value}
+              </div>
+              <div className="mt-2 text-xs text-muted-foreground md:text-sm">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
-
-const logos = [
-  { src: "https://storage.efferd.com/logo/nvidia-wordmark.svg", alt: "Nvidia" },
-  { src: "https://storage.efferd.com/logo/supabase-wordmark.svg", alt: "Supabase" },
-  { src: "https://storage.efferd.com/logo/openai-wordmark.svg", alt: "OpenAI" },
-  { src: "https://storage.efferd.com/logo/turso-wordmark.svg", alt: "Turso" },
-  { src: "https://storage.efferd.com/logo/vercel-wordmark.svg", alt: "Vercel" },
-  { src: "https://storage.efferd.com/logo/github-wordmark.svg", alt: "GitHub" },
-  { src: "https://storage.efferd.com/logo/claude-wordmark.svg", alt: "Claude" },
-  { src: "https://storage.efferd.com/logo/clerk-wordmark.svg", alt: "Clerk" },
-];

@@ -1,5 +1,5 @@
 import { Header } from "@/components/ui/header-1";
-import { HeroSection } from "@/components/ui/hero-1";
+import { HeroSection, StatsSection } from "@/components/ui/hero-1";
 import { Features } from "@/components/features";
 import { HowItWorks } from "@/components/how-it-works";
 import { ContractUpload } from "@/components/contract-upload";
@@ -12,6 +12,7 @@ export default function Home() {
       <Header />
       <main className="grow">
         <HeroSection />
+        <StatsSection />
         <Features />
         <HowItWorks />
         <ContractUpload />
