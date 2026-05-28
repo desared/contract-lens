@@ -15,7 +15,7 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'ContractLens - Understand Any Contract in Simple Terms',
+  title: 'ContractLess — Understand any contract in plain English',
   description: 'Upload your contract and get a plain-English explanation. No lawyer needed. Rent agreements, ownership contracts, divorce papers - we explain it all like you\'re five.',
   generator: 'v0.app',
   icons: {

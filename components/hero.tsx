@@ -1,94 +1,64 @@
 "use client";
 
-import { ArrowRight, Shield } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export function Hero() {
   return (
-    <section className="relative pt-24 pb-16 md:pt-32 md:pb-24">
-      <div className="mx-auto max-w-7xl px-4 md:px-6">
-        {/* Grid layout */}
-        <div className="grid gap-8 lg:grid-cols-12">
-          {/* Left column - Main content */}
-          <div className="lg:col-span-7">
-            {/* Badge */}
-            <div className="mb-8 inline-block border-2 border-foreground px-4 py-2">
-              <span className="text-sm font-bold uppercase tracking-widest text-foreground">
-                AI-Powered Contract Analysis
-              </span>
-            </div>
+    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28">
+      <div className="mx-auto max-w-3xl px-4 text-center md:px-6">
+        <div className="mb-6 inline-flex items-center gap-2 border border-border bg-card px-3 py-1 text-xs text-muted-foreground">
+          <span className="h-1.5 w-1.5 bg-emerald-500" />
+          AI-powered contract analysis
+        </div>
 
-            {/* Main heading */}
-            <h1 className="mb-6 text-4xl font-black uppercase leading-none tracking-tight text-foreground md:text-6xl lg:text-7xl">
-              Understand
-              <br />
-              Any Contract
-              <br />
-              <span className="bg-foreground px-2 text-background">
-                In Simple Terms
-              </span>
-            </h1>
+        <h1 className="text-balance text-4xl font-semibold tracking-tight text-foreground md:text-6xl">
+          Understand any contract,{" "}
+          <span className="text-muted-foreground">in plain English.</span>
+        </h1>
 
-            {/* Subtitle */}
-            <p className="mb-8 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-              Upload your contract and get a plain-English explanation.
-              No lawyer needed. Rent agreements, ownership contracts,
-              divorce papers — we explain it all like you&apos;re five.
-            </p>
+        <p className="mx-auto mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
+          Upload a contract and get a clear, jargon-free explanation in seconds.
+          No lawyer needed.
+        </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <Button
-                size="lg"
-                className="group border-2 border-foreground bg-foreground px-8 py-6 text-base font-bold uppercase tracking-wide text-background hover:bg-background hover:text-foreground"
-                asChild
-              >
-                <Link href="#upload">
-                  Analyze Your Contract
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-foreground bg-transparent px-8 py-6 text-base font-bold uppercase tracking-wide text-foreground hover:bg-foreground hover:text-background"
-                asChild
-              >
-                <Link href="#how-it-works">See How It Works</Link>
-              </Button>
-            </div>
-          </div>
+        <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <Button
+            size="lg"
+            className="group bg-foreground px-6 text-background hover:bg-foreground/90"
+            asChild
+          >
+            <Link href="#upload">
+              Analyze your contract
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
+          </Button>
+          <Button
+            size="lg"
+            variant="ghost"
+            className="px-6 text-muted-foreground hover:text-foreground"
+            asChild
+          >
+            <Link href="#how-it-works">See how it works</Link>
+          </Button>
+        </div>
 
-          {/* Right column - Stats grid */}
-          <div className="lg:col-span-5">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="border-2 border-foreground bg-card p-6">
-                <span className="block text-5xl font-black text-foreground">50K+</span>
-                <span className="mt-2 block text-sm font-medium uppercase tracking-wide text-muted-foreground">
-                  Contracts Analyzed
-                </span>
+        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-3 gap-px overflow-hidden border border-border bg-border">
+          {[
+            { value: "50K+", label: "Contracts analyzed" },
+            { value: "30s", label: "Average analysis" },
+            { value: "4.9", label: "User rating" },
+          ].map((stat) => (
+            <div key={stat.label} className="bg-background px-4 py-6">
+              <div className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+                {stat.value}
               </div>
-              <div className="border-2 border-foreground bg-card p-6">
-                <span className="block text-5xl font-black text-foreground">30s</span>
-                <span className="mt-2 block text-sm font-medium uppercase tracking-wide text-muted-foreground">
-                  Average Analysis Time
-                </span>
-              </div>
-              <div className="border-2 border-foreground bg-card p-6">
-                <span className="block text-5xl font-black text-foreground">4.9</span>
-                <span className="mt-2 block text-sm font-medium uppercase tracking-wide text-muted-foreground">
-                  User Rating
-                </span>
-              </div>
-              <div className="border-2 border-foreground bg-foreground p-6">
-                <Shield className="h-10 w-10 text-background" />
-                <span className="mt-2 block text-sm font-medium uppercase tracking-wide text-background">
-                  Bank-Level Security
-                </span>
+              <div className="mt-1 text-xs text-muted-foreground">
+                {stat.label}
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

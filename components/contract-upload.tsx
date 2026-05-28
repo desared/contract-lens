@@ -226,46 +226,44 @@ export function ContractUpload() {
   const getTypeStyles = (type: ContractClause["type"]) => {
     switch (type) {
       case "warning":
-        return "border-amber-500 bg-amber-50";
+        return "border-amber-200 bg-amber-50/60";
       case "good":
-        return "border-emerald-500 bg-emerald-50";
+        return "border-emerald-200 bg-emerald-50/60";
       default:
-        return "border-foreground bg-card";
+        return "border-border bg-card";
     }
   };
 
   const getIconContainerStyles = (type: ContractClause["type"]) => {
     switch (type) {
       case "warning":
-        return "border-amber-500 text-amber-600";
+        return "bg-amber-100 text-amber-700";
       case "good":
-        return "border-emerald-500 text-emerald-600";
+        return "bg-emerald-100 text-emerald-700";
       default:
-        return "border-foreground text-foreground";
+        return "bg-foreground/5 text-foreground";
     }
   };
 
   return (
-    <section id="upload" className="border-t-2 border-foreground py-16 md:py-24">
-      <div className="mx-auto max-w-4xl px-4 md:px-6">
-        {/* Section header */}
+    <section id="upload" className="py-20 md:py-28">
+      <div className="mx-auto max-w-3xl px-4 md:px-6">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-black uppercase tracking-tight text-foreground md:text-5xl">
-            Upload Your Contract
+          <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+            Upload your contract
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-lg text-muted-foreground">
-            Drop your document below and let our AI explain it in simple terms
+          <p className="mx-auto mt-4 max-w-md text-muted-foreground">
+            Drop your document and we'll explain it in plain English.
           </p>
         </div>
 
-        {/* Upload area */}
         <div
           className={`relative border-2 border-dashed transition-all ${
             isDragging
               ? "border-foreground bg-foreground/5"
               : file
-                ? "border-foreground bg-card"
-                : "border-foreground/50 bg-card hover:border-foreground"
+                ? "border-border bg-card"
+                : "border-border bg-card/50 hover:border-foreground/40"
           } p-8 md:p-12`}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
@@ -273,13 +271,13 @@ export function ContractUpload() {
         >
           {!file ? (
             <div className="text-center">
-              <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center border-2 border-foreground">
-                <Upload className="h-10 w-10 text-foreground" />
+              <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center bg-foreground/5">
+                <Upload className="h-5 w-5 text-foreground" />
               </div>
-              <h3 className="mb-2 text-xl font-bold uppercase tracking-wide text-foreground">
+              <h3 className="mb-1 text-base font-semibold text-foreground">
                 Drop your contract here
               </h3>
-              <p className="mb-6 text-muted-foreground">
+              <p className="mb-6 text-sm text-muted-foreground">
                 or click to browse your files
               </p>
               <input
@@ -291,27 +289,26 @@ export function ContractUpload() {
               />
               <Button
                 asChild
-                className="border-2 border-foreground bg-transparent font-bold uppercase tracking-wide text-foreground hover:bg-foreground hover:text-background"
+                variant="outline"
               >
                 <label htmlFor="file-upload" className="cursor-pointer">
-                  Browse Files
+                  Browse files
                 </label>
               </Button>
-              <p className="mt-4 text-sm text-muted-foreground">
-                Supports PDF, Word, TXT, and image files
+              <p className="mt-4 text-xs text-muted-foreground">
+                PDF, Word, TXT, and image files supported
               </p>
             </div>
           ) : (
             <div>
-              {/* File info */}
-              <div className="mb-6 flex items-center justify-between border-2 border-foreground p-4">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center border-2 border-foreground">
-                    <FileText className="h-6 w-6 text-foreground" />
+              <div className="mb-6 flex items-center justify-between border border-border bg-background p-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center bg-foreground/5">
+                    <FileText className="h-5 w-5 text-foreground" />
                   </div>
                   <div>
-                    <p className="font-bold text-foreground">{file.name}</p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm font-medium text-foreground">{file.name}</p>
+                    <p className="text-xs text-muted-foreground">
                       {(file.size / 1024).toFixed(1)} KB
                     </p>
                   </div>
@@ -321,101 +318,95 @@ export function ContractUpload() {
                   size="sm"
                   onClick={clearFile}
                   disabled={isAnalyzing}
-                  className="border-2 border-foreground hover:bg-foreground hover:text-background"
+                  className="text-muted-foreground hover:text-foreground"
                 >
                   <X className="h-4 w-4" />
                 </Button>
               </div>
 
-              {/* Analyze button */}
               {!analysis && (
                 <Button
-                  className="w-full border-2 border-foreground bg-foreground py-6 font-bold uppercase tracking-wide text-background hover:bg-transparent hover:text-foreground"
+                  className="w-full bg-foreground py-6 text-background hover:bg-foreground/90"
                   size="lg"
                   onClick={handleAnalyze}
                   disabled={isAnalyzing}
                 >
                   {isAnalyzing ? (
                     <>
-                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                       Analyzing your contract...
                     </>
                   ) : (
-                    <>Analyze Contract</>
+                    <>Analyze contract</>
                   )}
                 </Button>
               )}
 
-              {/* Analysis results */}
               {analysis && (
                 <div className="space-y-6">
-                  {/* Summary card */}
-                  <div className="border-2 border-foreground p-6">
+                  <div className="border border-border bg-background p-6">
                     <div className="mb-3 flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <div className="flex h-8 w-8 items-center justify-center border-2 border-foreground">
-                          <CheckCircle2 className="h-4 w-4 text-foreground" />
-                        </div>
-                        <h4 className="font-bold uppercase tracking-wide text-foreground">
-                          Quick Summary
+                        <CheckCircle2 className="h-4 w-4 text-foreground" />
+                        <h4 className="text-sm font-semibold text-foreground">
+                          Quick summary
                         </h4>
                       </div>
                       <span
-                        className={`border-2 px-3 py-1 text-xs font-bold uppercase tracking-wide ${
+                        className={`px-2.5 py-0.5 text-xs font-medium ${
                           analysis.overallRisk === "low"
-                            ? "border-emerald-500 bg-emerald-50 text-emerald-700"
+                            ? "bg-emerald-100 text-emerald-700"
                             : analysis.overallRisk === "medium"
-                              ? "border-amber-500 bg-amber-50 text-amber-700"
-                              : "border-red-500 bg-red-50 text-red-700"
+                              ? "bg-amber-100 text-amber-700"
+                              : "bg-red-100 text-red-700"
                         }`}
                       >
                         {analysis.overallRisk === "low"
-                          ? "Low Risk"
+                          ? "Low risk"
                           : analysis.overallRisk === "medium"
-                            ? "Medium Risk"
-                            : "High Risk"}
+                            ? "Medium risk"
+                            : "High risk"}
                       </span>
                     </div>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-sm leading-relaxed text-muted-foreground">
                       {analysis.summary}
                     </p>
                   </div>
 
-                  {/* Clause breakdown */}
                   <div>
-                    <h4 className="mb-4 text-lg font-bold uppercase tracking-wide text-foreground">
-                      Clause-by-Clause Breakdown
+                    <h4 className="mb-4 text-sm font-semibold text-foreground">
+                      Clause-by-clause breakdown
                     </h4>
-                    <div className="space-y-4">
+                    <div className="space-y-3">
                       {analysis.clauses.map((clause, index) => (
                         <div
                           key={index}
-                          className={`border-2 p-5 ${getTypeStyles(clause.type)}`}
+                          className={`border p-5 ${getTypeStyles(clause.type)}`}
                         >
-                          <div className="mb-3 flex items-start gap-3">
+                          <div className="mb-3 flex items-center gap-3">
                             <div
-                              className={`flex h-8 w-8 shrink-0 items-center justify-center border-2 ${getIconContainerStyles(clause.type)}`}
+                              className={`flex h-7 w-7 shrink-0 items-center justify-center ${getIconContainerStyles(clause.type)}`}
                             >
                               {getTypeIcon(clause.type)}
                             </div>
-                            <h5 className="font-bold uppercase tracking-wide text-foreground">
+                            <h5 className="text-sm font-semibold text-foreground">
                               {clause.title}
                             </h5>
                           </div>
-                          <div className="ml-11 space-y-3">
+                          <div className="ml-10 space-y-3">
                             <div>
-                              <p className="mb-1 text-xs font-bold uppercase tracking-widest text-muted-foreground">
-                                What it says:
+                              <p className="mb-1 text-xs font-medium text-muted-foreground">
+                                What it says
                               </p>
                               <p className="text-sm italic text-muted-foreground">
                                 &ldquo;{clause.originalText}&rdquo;
                               </p>
                             </div>
                             <div>
-                              <p className="mb-1 text-xs font-bold uppercase tracking-widest text-foreground">
-                                What it means:
+                              <p className="mb-1 text-xs font-medium text-foreground">
+                                What it means
                               </p>
-                              <p className="text-foreground leading-relaxed">
+                              <p className="text-sm leading-relaxed text-foreground">
                                 {clause.simpleExplanation}
                               </p>
                             </div>
@@ -425,17 +416,16 @@ export function ContractUpload() {
                     </div>
                   </div>
 
-                  {/* Actions */}
-                  <div className="flex flex-col gap-4 pt-4 sm:flex-row">
+                  <div className="flex flex-col gap-3 pt-2 sm:flex-row">
                     <Button
                       variant="outline"
-                      className="flex-1 border-2 border-foreground bg-transparent font-bold uppercase tracking-wide text-foreground hover:bg-foreground hover:text-background"
+                      className="flex-1"
                       onClick={clearFile}
                     >
-                      Analyze Another Contract
+                      Analyze another
                     </Button>
-                    <Button className="flex-1 border-2 border-foreground bg-foreground font-bold uppercase tracking-wide text-background hover:bg-transparent hover:text-foreground">
-                      Download PDF Report
+                    <Button className="flex-1 bg-foreground text-background hover:bg-foreground/90">
+                      Download PDF report
                     </Button>
                   </div>
                 </div>

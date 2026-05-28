@@ -12,86 +12,68 @@ import {
 const features = [
   {
     icon: FileText,
-    title: "Any Contract Type",
+    title: "Any contract type",
     description:
-      "Rent agreements, employment contracts, divorce papers, NDAs, purchase agreements — we handle them all.",
-    number: "01",
+      "Leases, employment contracts, NDAs, divorce papers, purchase agreements — we handle them all.",
   },
   {
     icon: MessageSquare,
-    title: "Baby-Simple Explanations",
+    title: "Plain-English explanations",
     description:
-      "No legal jargon. We explain every clause in plain English that anyone can understand.",
-    number: "02",
+      "No legal jargon. Every clause translated into language anyone can understand.",
   },
   {
     icon: AlertTriangle,
-    title: "Red Flag Detection",
+    title: "Red-flag detection",
     description:
-      "We highlight concerning clauses, unfair terms, and potential risks you should know about.",
-    number: "03",
+      "We surface concerning clauses, unfair terms, and risks you should know about.",
   },
   {
     icon: Zap,
-    title: "Instant Analysis",
+    title: "Instant analysis",
     description:
-      "Get your contract explained in seconds, not days. No waiting for expensive lawyer consultations.",
-    number: "04",
+      "Get your contract explained in seconds — no waiting on lawyer consultations.",
   },
   {
     icon: Lock,
-    title: "Private & Secure",
+    title: "Private & secure",
     description:
-      "Your documents are encrypted and automatically deleted after analysis. We never share your data.",
-    number: "05",
+      "Documents are encrypted and deleted after analysis. We never share your data.",
   },
   {
     icon: Languages,
-    title: "Multiple Languages",
+    title: "Multiple languages",
     description:
-      "Upload contracts in any language and get explanations in the language you prefer.",
-    number: "06",
+      "Upload in any language, read explanations in the one you prefer.",
   },
 ];
 
 export function Features() {
   return (
-    <section id="features" className="border-y-2 border-foreground py-16 md:py-24">
-      <div className="mx-auto max-w-7xl px-4 md:px-6">
-        {/* Section header */}
-        <div className="mb-16 grid gap-4 lg:grid-cols-2 lg:items-end">
-          <h2 className="text-3xl font-black uppercase leading-tight tracking-tight text-foreground md:text-5xl">
-            Everything You Need to
-            <br />
-            <span className="bg-foreground px-2 text-background">
-              Understand Your Contracts
-            </span>
+    <section id="features" className="py-20 md:py-28">
+      <div className="mx-auto max-w-6xl px-4 md:px-6">
+        <div className="mx-auto mb-16 max-w-2xl text-center">
+          <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+            Everything you need to read the fine print
           </h2>
-          <p className="max-w-lg text-lg text-muted-foreground lg:text-right">
-            Our AI reads the fine print so you don&apos;t have to.
-            Get clarity on what you&apos;re actually signing.
+          <p className="mx-auto mt-4 max-w-lg text-pretty text-muted-foreground">
+            Our AI reads contracts so you don't have to — and tells you exactly what matters.
           </p>
         </div>
 
-        {/* Features grid */}
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature) => (
             <div
-              key={feature.number}
-              className="group border-2 border-foreground bg-card p-6 transition-colors hover:bg-foreground"
+              key={feature.title}
+              className="border border-border bg-card p-6 transition-colors hover:border-foreground/20"
             >
-              <div className="mb-4 flex items-start justify-between">
-                <div className="border-2 border-foreground p-3 transition-colors group-hover:border-background group-hover:bg-background">
-                  <feature.icon className="h-6 w-6 text-foreground" />
-                </div>
-                <span className="text-4xl font-black text-muted-foreground/30 transition-colors group-hover:text-background/30">
-                  {feature.number}
-                </span>
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center bg-foreground/5">
+                <feature.icon className="h-5 w-5 text-foreground" />
               </div>
-              <h3 className="mb-3 text-lg font-bold uppercase tracking-wide text-foreground transition-colors group-hover:text-background">
+              <h3 className="mb-2 text-base font-semibold text-foreground">
                 {feature.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed transition-colors group-hover:text-background/80">
+              <p className="text-sm leading-relaxed text-muted-foreground">
                 {feature.description}
               </p>
             </div>
