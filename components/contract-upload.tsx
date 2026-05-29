@@ -11,12 +11,15 @@ import {
   Info,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
+
+type ClauseType = "info" | "warning" | "good";
 
 interface ContractClause {
   title: string;
   originalText: string;
   simpleExplanation: string;
-  type: "info" | "warning" | "good";
+  type: ClauseType;
 }
 
 interface AnalysisResult {
@@ -25,142 +28,31 @@ interface AnalysisResult {
   overallRisk: "low" | "medium" | "high";
 }
 
-// Simulated AI analysis (in production, this would call an API)
-const analyzeContract = async (file: File): Promise<AnalysisResult> => {
-  // Simulate API delay
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-
-  // Return mock analysis based on file name to show different scenarios
-  const isRent = file.name.toLowerCase().includes("rent");
-  const isDivorce = file.name.toLowerCase().includes("divorce");
-
-  if (isRent) {
-    return {
-      summary:
-        "This is a standard residential lease agreement. Overall, the terms are fairly common for rental contracts, but there are a few clauses you should pay attention to.",
-      overallRisk: "low",
-      clauses: [
-        {
-          title: "Monthly Rent & Payment",
-          originalText:
-            "Tenant agrees to pay $1,500 monthly, due on the 1st of each month...",
-          simpleExplanation:
-            "You need to pay $1,500 every month. Think of it like paying for your spot to live there. If you pay late, you might have to pay extra money as a penalty.",
-          type: "info",
-        },
-        {
-          title: "Security Deposit",
-          originalText:
-            "A security deposit equal to one month's rent shall be collected...",
-          simpleExplanation:
-            "You pay $1,500 upfront that the landlord holds onto. It's like a safety piggy bank - if you don't break anything and pay all your rent, you get it back when you move out.",
-          type: "good",
-        },
-        {
-          title: "Late Payment Fee",
-          originalText:
-            "A late fee of 10% shall be applied to any payment received after the 5th...",
-          simpleExplanation:
-            "If you don't pay by the 5th of the month, you owe an extra $150. That's pretty steep! Many places only charge 5%. Try to always pay on time.",
-          type: "warning",
-        },
-        {
-          title: "Maintenance Responsibilities",
-          originalText:
-            "Tenant shall be responsible for minor repairs under $100...",
-          simpleExplanation:
-            "If something small breaks (like a clogged drain or a broken doorknob), you have to fix it yourself if it costs less than $100. For bigger stuff, the landlord pays.",
-          type: "info",
-        },
-      ],
-    };
-  }
-
-  if (isDivorce) {
-    return {
-      summary:
-        "This divorce agreement covers asset division, custody arrangements, and support payments. Several clauses require careful attention.",
-      overallRisk: "medium",
-      clauses: [
-        {
-          title: "Asset Division",
-          originalText:
-            "Marital assets shall be divided equally between parties...",
-          simpleExplanation:
-            "Everything you both bought or earned while married gets split 50/50. This includes the house, cars, savings, and retirement accounts. It's like splitting a pizza right down the middle.",
-          type: "info",
-        },
-        {
-          title: "Child Custody",
-          originalText:
-            "Joint legal custody with primary physical custody to Party A...",
-          simpleExplanation:
-            "Both parents get to make big decisions about the kids (school, doctor, etc.) together. But the kids will live mostly with one parent and visit the other.",
-          type: "info",
-        },
-        {
-          title: "Non-Compete Clause",
-          originalText:
-            "Neither party shall disparage the other in presence of minor children...",
-          simpleExplanation:
-            "You can't say mean things about each other in front of the kids. This is actually good - it protects the children from being caught in the middle.",
-          type: "good",
-        },
-        {
-          title: "Support Modification",
-          originalText:
-            "Support payments may only be modified through court proceedings...",
-          simpleExplanation:
-            "If you want to change how much money is paid, you have to go back to court. You can't just agree privately and change it - the court needs to approve.",
-          type: "warning",
-        },
-      ],
-    };
-  }
-
-  // Default analysis for any other contract
-  return {
-    summary:
-      "This contract contains several standard legal provisions. We've identified the key terms and explained them in simple language below.",
-    overallRisk: "low",
-    clauses: [
-      {
-        title: "Term & Duration",
-        originalText:
-          "This agreement shall commence on the Effective Date and continue...",
-        simpleExplanation:
-          "This part tells you how long the deal lasts. Think of it like the expiration date on milk - after this time, the agreement ends unless you renew it.",
-        type: "info",
-      },
-      {
-        title: "Termination Rights",
-        originalText:
-          "Either party may terminate with 30 days written notice...",
-        simpleExplanation:
-          "If you want to end this agreement, you need to tell the other person in writing and wait 30 days. It's like giving notice before moving out.",
-        type: "good",
-      },
-      {
-        title: "Confidentiality",
-        originalText:
-          "All information shared shall remain confidential and not be disclosed...",
-        simpleExplanation:
-          "Whatever private information you share during this deal, the other person can't tell anyone else about it. It's like the pinky promise of legal documents.",
-        type: "info",
-      },
-      {
-        title: "Liability Limitation",
-        originalText:
-          "Neither party shall be liable for indirect, consequential, or punitive damages...",
-        simpleExplanation:
-          "If something goes wrong, you can only sue for the actual damage caused - not for extra stuff like emotional stress or lost opportunities. This protects both sides.",
-        type: "warning",
-      },
-    ],
-  };
-};
+type MockTemplate = "rent" | "divorce" | "default";
 
 export function ContractUpload() {
+  const t = useTranslations("Upload");
+
+  const buildAnalysis = (template: MockTemplate): AnalysisResult => {
+    const summary = t(`mock.${template}.summary`);
+    const clauses = t.raw(`mock.${template}.clauses`) as ContractClause[];
+    const overallRisk =
+      template === "divorce" ? "medium" : template === "rent" ? "low" : "low";
+    return { summary, clauses, overallRisk };
+  };
+
+  const analyzeContract = async (file: File): Promise<AnalysisResult> => {
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+    const name = file.name.toLowerCase();
+    if (name.includes("rent") || name.includes("miet")) {
+      return buildAnalysis("rent");
+    }
+    if (name.includes("divorce") || name.includes("scheidung")) {
+      return buildAnalysis("divorce");
+    }
+    return buildAnalysis("default");
+  };
+
   const [file, setFile] = useState<File | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
@@ -212,7 +104,7 @@ export function ContractUpload() {
     setAnalysis(null);
   };
 
-  const getTypeIcon = (type: ContractClause["type"]) => {
+  const getTypeIcon = (type: ClauseType) => {
     switch (type) {
       case "warning":
         return <AlertTriangle className="h-5 w-5" />;
@@ -223,7 +115,7 @@ export function ContractUpload() {
     }
   };
 
-  const getTypeStyles = (type: ContractClause["type"]) => {
+  const getTypeStyles = (type: ClauseType) => {
     switch (type) {
       case "warning":
         return "border-amber-200 bg-amber-50/60";
@@ -234,7 +126,7 @@ export function ContractUpload() {
     }
   };
 
-  const getIconContainerStyles = (type: ContractClause["type"]) => {
+  const getIconContainerStyles = (type: ClauseType) => {
     switch (type) {
       case "warning":
         return "bg-amber-100 text-amber-700";
@@ -245,15 +137,18 @@ export function ContractUpload() {
     }
   };
 
+  const riskLabel = (risk: AnalysisResult["overallRisk"]) =>
+    risk === "low" ? t("riskLow") : risk === "medium" ? t("riskMedium") : t("riskHigh");
+
   return (
     <section id="upload" className="py-20 md:py-28">
       <div className="mx-auto max-w-3xl px-4 md:px-6">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-            Upload your contract
+            {t("heading")}
           </h2>
           <p className="mx-auto mt-4 max-w-md text-muted-foreground">
-            Drop your document and we'll explain it in plain English.
+            {t("subheading")}
           </p>
         </div>
 
@@ -275,10 +170,10 @@ export function ContractUpload() {
                 <Upload className="h-5 w-5 text-foreground" />
               </div>
               <h3 className="mb-1 text-base font-semibold text-foreground">
-                Drop your contract here
+                {t("dropHere")}
               </h3>
               <p className="mb-6 text-sm text-muted-foreground">
-                or click to browse your files
+                {t("orBrowse")}
               </p>
               <input
                 type="file"
@@ -287,16 +182,13 @@ export function ContractUpload() {
                 accept=".pdf,.doc,.docx,.txt,.png,.jpg,.jpeg"
                 onChange={handleFileChange}
               />
-              <Button
-                asChild
-                variant="outline"
-              >
+              <Button asChild variant="outline">
                 <label htmlFor="file-upload" className="cursor-pointer">
-                  Browse files
+                  {t("browseFiles")}
                 </label>
               </Button>
               <p className="mt-4 text-xs text-muted-foreground">
-                PDF, Word, TXT, and image files supported
+                {t("supportedFormats")}
               </p>
             </div>
           ) : (
@@ -309,7 +201,7 @@ export function ContractUpload() {
                   <div>
                     <p className="text-sm font-medium text-foreground">{file.name}</p>
                     <p className="text-xs text-muted-foreground">
-                      {(file.size / 1024).toFixed(1)} KB
+                      {(file.size / 1024).toFixed(1)} {t("kb")}
                     </p>
                   </div>
                 </div>
@@ -334,10 +226,10 @@ export function ContractUpload() {
                   {isAnalyzing ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Analyzing your contract...
+                      {t("analyzing")}
                     </>
                   ) : (
-                    <>Analyze contract</>
+                    <>{t("analyze")}</>
                   )}
                 </Button>
               )}
@@ -349,7 +241,7 @@ export function ContractUpload() {
                       <div className="flex items-center gap-2">
                         <CheckCircle2 className="h-4 w-4 text-foreground" />
                         <h4 className="text-sm font-semibold text-foreground">
-                          Quick summary
+                          {t("quickSummary")}
                         </h4>
                       </div>
                       <span
@@ -361,11 +253,7 @@ export function ContractUpload() {
                               : "bg-red-100 text-red-700"
                         }`}
                       >
-                        {analysis.overallRisk === "low"
-                          ? "Low risk"
-                          : analysis.overallRisk === "medium"
-                            ? "Medium risk"
-                            : "High risk"}
+                        {riskLabel(analysis.overallRisk)}
                       </span>
                     </div>
                     <p className="text-sm leading-relaxed text-muted-foreground">
@@ -375,7 +263,7 @@ export function ContractUpload() {
 
                   <div>
                     <h4 className="mb-4 text-sm font-semibold text-foreground">
-                      Clause-by-clause breakdown
+                      {t("clauseBreakdown")}
                     </h4>
                     <div className="space-y-3">
                       {analysis.clauses.map((clause, index) => (
@@ -396,7 +284,7 @@ export function ContractUpload() {
                           <div className="ml-10 space-y-3">
                             <div>
                               <p className="mb-1 text-xs font-medium text-muted-foreground">
-                                What it says
+                                {t("whatItSays")}
                               </p>
                               <p className="text-sm italic text-muted-foreground">
                                 &ldquo;{clause.originalText}&rdquo;
@@ -404,7 +292,7 @@ export function ContractUpload() {
                             </div>
                             <div>
                               <p className="mb-1 text-xs font-medium text-foreground">
-                                What it means
+                                {t("whatItMeans")}
                               </p>
                               <p className="text-sm leading-relaxed text-foreground">
                                 {clause.simpleExplanation}
@@ -422,10 +310,10 @@ export function ContractUpload() {
                       className="flex-1"
                       onClick={clearFile}
                     >
-                      Analyze another
+                      {t("analyzeAnother")}
                     </Button>
                     <Button className="flex-1 bg-foreground text-background hover:bg-foreground/90">
-                      Download PDF report
+                      {t("downloadReport")}
                     </Button>
                   </div>
                 </div>

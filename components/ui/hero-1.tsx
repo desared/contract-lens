@@ -1,11 +1,12 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { SparklesIcon, ArrowRightIcon, UploadIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function HeroSection() {
+  const t = useTranslations("Hero");
   return (
     <section className="relative mx-auto w-full max-w-5xl">
-      {/* Top radial glow */}
       <div
         aria-hidden="true"
         className="absolute inset-0 isolate hidden overflow-hidden contain-strict lg:block"
@@ -13,7 +14,6 @@ export function HeroSection() {
         <div className="absolute inset-0 -top-14 -z-10 bg-[radial-gradient(35%_80%_at_49%_0%,rgba(0,0,0,0.08),transparent)]" />
       </div>
 
-      {/* Outer bold faded borders */}
       <div
         aria-hidden="true"
         className="absolute inset-0 mx-auto hidden min-h-screen w-full max-w-5xl lg:block"
@@ -23,7 +23,6 @@ export function HeroSection() {
       </div>
 
       <div className="relative flex flex-col items-center justify-center gap-5 pt-32 pb-30">
-        {/* Inner faded borders */}
         <div
           aria-hidden="true"
           className="absolute inset-0 -z-1 size-full overflow-hidden"
@@ -42,7 +41,7 @@ export function HeroSection() {
           href="#features"
         >
           <SparklesIcon className="size-3 text-muted-foreground" />
-          <span className="text-xs">New: AI clause detection</span>
+          <span className="text-xs">{t("badge")}</span>
           <span className="block h-5 border-l" />
           <ArrowRightIcon className="size-3 duration-150 ease-out group-hover:translate-x-1" />
         </a>
@@ -53,22 +52,21 @@ export function HeroSection() {
             "[text-shadow:0_0_50px_rgba(0,0,0,0.15)]",
           )}
         >
-          Understand any contract <br /> in plain English
+          {t("titleLine1")} <br /> {t("titleLine2")}
         </h1>
 
         <p className="fade-in slide-in-from-bottom-10 mx-auto max-w-md animate-in fill-mode-backwards text-center text-base text-foreground/80 tracking-wide delay-200 duration-500 ease-out sm:text-lg md:text-xl">
-          Upload a lease, NDA, or employment contract <br /> and get a clear,
-          jargon-free breakdown in seconds.
+          {t("subtitleLine1")} <br /> {t("subtitleLine2")}
         </p>
 
         <div className="fade-in slide-in-from-bottom-10 flex animate-in flex-row flex-wrap items-center justify-center gap-3 fill-mode-backwards pt-2 delay-300 duration-500 ease-out">
           <Button asChild className="rounded-full" size="lg" variant="secondary">
-            <a href="#pricing">See pricing</a>
+            <a href="#pricing">{t("seePricing")}</a>
           </Button>
           <Button asChild className="rounded-full" size="lg">
             <a href="#upload">
               <UploadIcon data-icon="inline-start" className="mr-2 size-4" />
-              Analyze your contract
+              {t("analyzeCta")}
               <ArrowRightIcon className="ms-2 size-4" data-icon="inline-end" />
             </a>
           </Button>
@@ -78,19 +76,21 @@ export function HeroSection() {
   );
 }
 
-const stats = [
-  { value: "10K+", label: "Contracts analyzed" },
-  { value: "30s", label: "Average analysis time" },
-  { value: "98%", label: "Clause accuracy" },
-  { value: "4.9", label: "Average user rating" },
-];
-
 export function StatsSection() {
+  const t = useTranslations("Stats");
+  const stats = [
+    { value: "10K+", label: t("contractsAnalyzed") },
+    { value: "30s", label: t("averageTime") },
+    { value: "98%", label: t("clauseAccuracy") },
+    { value: "4.9", label: t("userRating") },
+  ];
+
   return (
     <section className="relative border-t pt-10 pb-14">
       <div className="mx-auto max-w-5xl px-4">
         <h2 className="text-center text-lg font-medium tracking-tight text-muted-foreground md:text-xl">
-          Trusted by people <span className="text-foreground">solving real contracts</span>
+          {t("headingLead")}{" "}
+          <span className="text-foreground">{t("headingHighlight")}</span>
         </h2>
         <div className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-px overflow-hidden border bg-border md:grid-cols-4">
           {stats.map((stat) => (

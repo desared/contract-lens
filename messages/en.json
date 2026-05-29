@@ -1,0 +1,252 @@
+{
+  "Meta": {
+    "title": "ContractLess — Understand any contract in plain English",
+    "description": "Upload your contract and get a plain-English explanation. No lawyer needed. Rent agreements, ownership contracts, divorce papers — we explain it all."
+  },
+  "Header": {
+    "features": "Features",
+    "howItWorks": "How it works",
+    "pricing": "Pricing",
+    "signIn": "Sign in",
+    "tryFree": "Try free",
+    "toggleMenu": "Toggle menu",
+    "switchLanguage": "Switch language"
+  },
+  "Hero": {
+    "badge": "New: AI clause detection",
+    "titleLine1": "Understand any contract",
+    "titleLine2": "in plain English",
+    "subtitleLine1": "Upload a lease, NDA, or employment contract",
+    "subtitleLine2": "and get a clear, jargon-free breakdown in seconds.",
+    "seePricing": "See pricing",
+    "analyzeCta": "Analyze your contract"
+  },
+  "Stats": {
+    "headingLead": "Trusted by people",
+    "headingHighlight": "solving real contracts",
+    "contractsAnalyzed": "Contracts analyzed",
+    "averageTime": "Average analysis time",
+    "clauseAccuracy": "Clause accuracy",
+    "userRating": "Average user rating"
+  },
+  "Features": {
+    "heading": "Everything you need to read the fine print",
+    "subheading": "Our AI reads contracts so you don't have to — and tells you exactly what matters.",
+    "items": {
+      "anyContract": {
+        "title": "Any contract type",
+        "description": "Leases, employment contracts, NDAs, divorce papers, purchase agreements — we handle them all."
+      },
+      "plainEnglish": {
+        "title": "Plain-English explanations",
+        "description": "No legal jargon. Every clause translated into language anyone can understand."
+      },
+      "redFlag": {
+        "title": "Red-flag detection",
+        "description": "We surface concerning clauses, unfair terms, and risks you should know about."
+      },
+      "instant": {
+        "title": "Instant analysis",
+        "description": "Get your contract explained in seconds — no waiting on lawyer consultations."
+      },
+      "private": {
+        "title": "Private & secure",
+        "description": "Documents are encrypted and deleted after analysis. We never share your data."
+      },
+      "languages": {
+        "title": "Multiple languages",
+        "description": "Upload in any language, read explanations in the one you prefer."
+      }
+    }
+  },
+  "HowItWorks": {
+    "heading": "How it works",
+    "subheading": "Three simple steps from upload to understanding.",
+    "steps": {
+      "upload": {
+        "title": "Upload your contract",
+        "description": "Drag and drop a PDF, Word doc, or photo. We accept all common formats."
+      },
+      "analyze": {
+        "title": "AI reads every clause",
+        "description": "Our model identifies key terms, obligations, and potential concerns."
+      },
+      "breakdown": {
+        "title": "Get a clear breakdown",
+        "description": "A jargon-free explanation of what the contract actually means for you."
+      }
+    }
+  },
+  "Upload": {
+    "heading": "Upload your contract",
+    "subheading": "Drop your document and we'll explain it in plain English.",
+    "dropHere": "Drop your contract here",
+    "orBrowse": "or click to browse your files",
+    "browseFiles": "Browse files",
+    "supportedFormats": "PDF, Word, TXT, and image files supported",
+    "kb": "KB",
+    "analyzing": "Analyzing your contract...",
+    "analyze": "Analyze contract",
+    "quickSummary": "Quick summary",
+    "riskLow": "Low risk",
+    "riskMedium": "Medium risk",
+    "riskHigh": "High risk",
+    "clauseBreakdown": "Clause-by-clause breakdown",
+    "whatItSays": "What it says",
+    "whatItMeans": "What it means",
+    "analyzeAnother": "Analyze another",
+    "downloadReport": "Download PDF report",
+    "mock": {
+      "rent": {
+        "summary": "This is a standard residential lease agreement. Overall, the terms are fairly common for rental contracts, but there are a few clauses you should pay attention to.",
+        "clauses": [
+          {
+            "title": "Monthly Rent & Payment",
+            "originalText": "Tenant agrees to pay $1,500 monthly, due on the 1st of each month...",
+            "simpleExplanation": "You need to pay $1,500 every month. Think of it like paying for your spot to live there. If you pay late, you might have to pay extra money as a penalty.",
+            "type": "info"
+          },
+          {
+            "title": "Security Deposit",
+            "originalText": "A security deposit equal to one month's rent shall be collected...",
+            "simpleExplanation": "You pay $1,500 upfront that the landlord holds onto. It's like a safety piggy bank — if you don't break anything and pay all your rent, you get it back when you move out.",
+            "type": "good"
+          },
+          {
+            "title": "Late Payment Fee",
+            "originalText": "A late fee of 10% shall be applied to any payment received after the 5th...",
+            "simpleExplanation": "If you don't pay by the 5th of the month, you owe an extra $150. That's pretty steep! Many places only charge 5%. Try to always pay on time.",
+            "type": "warning"
+          },
+          {
+            "title": "Maintenance Responsibilities",
+            "originalText": "Tenant shall be responsible for minor repairs under $100...",
+            "simpleExplanation": "If something small breaks (like a clogged drain or a broken doorknob), you have to fix it yourself if it costs less than $100. For bigger stuff, the landlord pays.",
+            "type": "info"
+          }
+        ]
+      },
+      "divorce": {
+        "summary": "This divorce agreement covers asset division, custody arrangements, and support payments. Several clauses require careful attention.",
+        "clauses": [
+          {
+            "title": "Asset Division",
+            "originalText": "Marital assets shall be divided equally between parties...",
+            "simpleExplanation": "Everything you both bought or earned while married gets split 50/50. This includes the house, cars, savings, and retirement accounts.",
+            "type": "info"
+          },
+          {
+            "title": "Child Custody",
+            "originalText": "Joint legal custody with primary physical custody to Party A...",
+            "simpleExplanation": "Both parents get to make big decisions about the kids together. But the kids will live mostly with one parent and visit the other.",
+            "type": "info"
+          },
+          {
+            "title": "Non-Disparagement",
+            "originalText": "Neither party shall disparage the other in presence of minor children...",
+            "simpleExplanation": "You can't say mean things about each other in front of the kids. This protects the children from being caught in the middle.",
+            "type": "good"
+          },
+          {
+            "title": "Support Modification",
+            "originalText": "Support payments may only be modified through court proceedings...",
+            "simpleExplanation": "If you want to change how much money is paid, you have to go back to court. You can't just agree privately and change it.",
+            "type": "warning"
+          }
+        ]
+      },
+      "default": {
+        "summary": "This contract contains several standard legal provisions. We've identified the key terms and explained them in simple language below.",
+        "clauses": [
+          {
+            "title": "Term & Duration",
+            "originalText": "This agreement shall commence on the Effective Date and continue...",
+            "simpleExplanation": "This part tells you how long the deal lasts. After this time, the agreement ends unless you renew it.",
+            "type": "info"
+          },
+          {
+            "title": "Termination Rights",
+            "originalText": "Either party may terminate with 30 days written notice...",
+            "simpleExplanation": "If you want to end this agreement, you need to tell the other person in writing and wait 30 days.",
+            "type": "good"
+          },
+          {
+            "title": "Confidentiality",
+            "originalText": "All information shared shall remain confidential and not be disclosed...",
+            "simpleExplanation": "Whatever private information you share during this deal, the other person can't tell anyone else about it.",
+            "type": "info"
+          },
+          {
+            "title": "Liability Limitation",
+            "originalText": "Neither party shall be liable for indirect, consequential, or punitive damages...",
+            "simpleExplanation": "If something goes wrong, you can only sue for the actual damage caused — not for extra stuff like emotional stress.",
+            "type": "warning"
+          }
+        ]
+      }
+    }
+  },
+  "Pricing": {
+    "heading": "Simple, transparent pricing",
+    "subheading": "Choose a plan that fits your needs. No hidden fees, cancel anytime.",
+    "mostPopular": "Most popular",
+    "guarantee": "30-day money-back guarantee. No questions asked.",
+    "perMonth": "per month",
+    "forever": "forever",
+    "plans": {
+      "free": {
+        "name": "Free",
+        "description": "For trying out the service.",
+        "cta": "Get started",
+        "features": [
+          "1 contract analysis per month",
+          "Plain-English explanation",
+          "PDF upload",
+          "Email summary"
+        ]
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "For individuals with regular contract needs.",
+        "cta": "Start Pro trial",
+        "features": [
+          "20 analyses per month",
+          "Clause-by-clause breakdown",
+          "Red-flag detection",
+          "All file formats",
+          "Priority processing",
+          "PDF reports"
+        ]
+      },
+      "business": {
+        "name": "Business",
+        "description": "For teams and businesses.",
+        "cta": "Contact sales",
+        "features": [
+          "Unlimited analyses",
+          "Everything in Pro",
+          "Team collaboration",
+          "API access",
+          "Custom branding",
+          "Dedicated support"
+        ]
+      }
+    }
+  },
+  "Footer": {
+    "tagline": "Making legal documents accessible to everyone, one contract at a time.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "features": "Features",
+    "pricing": "Pricing",
+    "api": "API",
+    "about": "About",
+    "blog": "Blog",
+    "careers": "Careers",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "security": "Security",
+    "rights": "© 2026 ContractLess. All rights reserved."
+  }
+}

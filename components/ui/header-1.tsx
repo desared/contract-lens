@@ -6,15 +6,19 @@ import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
 import { useScroll } from "@/components/ui/use-scroll";
 import { createPortal } from "react-dom";
 import { ScanLine } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { LanguageSwitcher } from "@/components/ui/language-switcher";
 
 export function Header() {
   const [open, setOpen] = React.useState(false);
   const scrolled = useScroll(10);
+  const t = useTranslations("Header");
 
   const links = [
-    { label: "Features", href: "#features" },
-    { label: "How it works", href: "#how-it-works" },
-    { label: "Pricing", href: "#pricing" },
+    { label: t("features"), href: "#features" },
+    { label: t("howItWorks"), href: "#how-it-works" },
+    { label: t("pricing"), href: "#pricing" },
   ];
 
   React.useEffect(() => {
@@ -36,14 +40,17 @@ export function Header() {
       })}
     >
       <nav className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between px-4">
-        <a href="/" className="flex items-center gap-2 rounded-md p-2 hover:bg-accent">
+        <Link
+          href="/"
+          className="flex items-center gap-2 rounded-md p-2 hover:bg-accent"
+        >
           <span className="flex h-7 w-7 items-center justify-center bg-foreground">
             <ScanLine className="h-4 w-4 text-background" />
           </span>
           <span className="text-base font-semibold tracking-tight text-foreground">
             ContractLess
           </span>
-        </a>
+        </Link>
         <div className="hidden items-center gap-2 md:flex">
           {links.map((link) => (
             <a
@@ -54,22 +61,25 @@ export function Header() {
               {link.label}
             </a>
           ))}
-          <Button variant="outline">Sign in</Button>
+          <LanguageSwitcher className="ml-2" />
+          <Button variant="outline">{t("signIn")}</Button>
           <Button asChild>
-            <a href="#upload">Try free</a>
+            <a href="#upload">{t("tryFree")}</a>
           </Button>
         </div>
-        <Button
-          size="icon"
-          variant="outline"
-          onClick={() => setOpen(!open)}
-          className="md:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          aria-label="Toggle menu"
-        >
-          <MenuToggleIcon open={open} className="size-5" duration={300} />
-        </Button>
+        <div className="flex items-center gap-2 md:hidden">
+          <LanguageSwitcher />
+          <Button
+            size="icon"
+            variant="outline"
+            onClick={() => setOpen(!open)}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={t("toggleMenu")}
+          >
+            <MenuToggleIcon open={open} className="size-5" duration={300} />
+          </Button>
+        </div>
       </nav>
       <MobileMenu open={open} className="flex flex-col justify-between gap-2">
         <div className="grid gap-y-2">
@@ -89,11 +99,11 @@ export function Header() {
         </div>
         <div className="flex flex-col gap-2">
           <Button variant="outline" className="w-full bg-transparent">
-            Sign in
+            {t("signIn")}
           </Button>
           <Button asChild className="w-full">
             <a href="#upload" onClick={() => setOpen(false)}>
-              Try free
+              {t("tryFree")}
             </a>
           </Button>
         </div>
