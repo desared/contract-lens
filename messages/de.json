@@ -1,0 +1,252 @@
+{
+  "Meta": {
+    "title": "ContractLess — Verstehe jeden Vertrag in einfacher Sprache",
+    "description": "Lade deinen Vertrag hoch und erhalte eine verständliche Erklärung. Kein Anwalt nötig. Mietverträge, Eigentumsverträge, Scheidungsunterlagen — wir erklären alles."
+  },
+  "Header": {
+    "features": "Funktionen",
+    "howItWorks": "So funktioniert's",
+    "pricing": "Preise",
+    "signIn": "Anmelden",
+    "tryFree": "Kostenlos testen",
+    "toggleMenu": "Menü umschalten",
+    "switchLanguage": "Sprache wechseln"
+  },
+  "Hero": {
+    "badge": "Neu: KI-Klauselerkennung",
+    "titleLine1": "Verstehe jeden Vertrag",
+    "titleLine2": "in einfacher Sprache",
+    "subtitleLine1": "Lade einen Mietvertrag, eine NDA oder einen Arbeitsvertrag hoch",
+    "subtitleLine2": "und erhalte in Sekunden eine klare, verständliche Aufschlüsselung.",
+    "seePricing": "Preise ansehen",
+    "analyzeCta": "Vertrag analysieren"
+  },
+  "Stats": {
+    "headingLead": "Vertraut von Menschen,",
+    "headingHighlight": "die echte Verträge lösen",
+    "contractsAnalyzed": "Analysierte Verträge",
+    "averageTime": "Durchschnittliche Analysezeit",
+    "clauseAccuracy": "Klauselgenauigkeit",
+    "userRating": "Durchschnittliche Bewertung"
+  },
+  "Features": {
+    "heading": "Alles, was du brauchst, um das Kleingedruckte zu verstehen",
+    "subheading": "Unsere KI liest Verträge, damit du es nicht musst — und zeigt dir genau, was wichtig ist.",
+    "items": {
+      "anyContract": {
+        "title": "Jede Vertragsart",
+        "description": "Mietverträge, Arbeitsverträge, NDAs, Scheidungsunterlagen, Kaufverträge — wir bearbeiten sie alle."
+      },
+      "plainEnglish": {
+        "title": "Erklärungen in einfacher Sprache",
+        "description": "Kein Juristendeutsch. Jede Klausel in eine Sprache übersetzt, die jeder versteht."
+      },
+      "redFlag": {
+        "title": "Erkennung von Warnsignalen",
+        "description": "Wir zeigen bedenkliche Klauseln, unfaire Bedingungen und Risiken auf, die du kennen solltest."
+      },
+      "instant": {
+        "title": "Sofortige Analyse",
+        "description": "Lass dir deinen Vertrag in Sekunden erklären — kein Warten auf einen Anwaltstermin."
+      },
+      "private": {
+        "title": "Privat & sicher",
+        "description": "Dokumente werden verschlüsselt und nach der Analyse gelöscht. Wir geben deine Daten nie weiter."
+      },
+      "languages": {
+        "title": "Mehrere Sprachen",
+        "description": "Lade in jeder Sprache hoch und lies die Erklärung in deiner bevorzugten Sprache."
+      }
+    }
+  },
+  "HowItWorks": {
+    "heading": "So funktioniert's",
+    "subheading": "Drei einfache Schritte vom Upload bis zum Verständnis.",
+    "steps": {
+      "upload": {
+        "title": "Vertrag hochladen",
+        "description": "Zieh ein PDF, Word-Dokument oder Foto per Drag-and-Drop. Wir akzeptieren alle gängigen Formate."
+      },
+      "analyze": {
+        "title": "KI liest jede Klausel",
+        "description": "Unser Modell erkennt zentrale Bedingungen, Pflichten und mögliche Probleme."
+      },
+      "breakdown": {
+        "title": "Klare Aufschlüsselung erhalten",
+        "description": "Eine verständliche Erklärung dessen, was der Vertrag tatsächlich für dich bedeutet."
+      }
+    }
+  },
+  "Upload": {
+    "heading": "Vertrag hochladen",
+    "subheading": "Lade dein Dokument hoch und wir erklären es in einfacher Sprache.",
+    "dropHere": "Vertrag hier ablegen",
+    "orBrowse": "oder klicke, um Dateien zu durchsuchen",
+    "browseFiles": "Dateien durchsuchen",
+    "supportedFormats": "PDF, Word, TXT und Bilddateien werden unterstützt",
+    "kb": "KB",
+    "analyzing": "Vertrag wird analysiert...",
+    "analyze": "Vertrag analysieren",
+    "quickSummary": "Kurzfassung",
+    "riskLow": "Geringes Risiko",
+    "riskMedium": "Mittleres Risiko",
+    "riskHigh": "Hohes Risiko",
+    "clauseBreakdown": "Klausel-für-Klausel-Aufschlüsselung",
+    "whatItSays": "Was darin steht",
+    "whatItMeans": "Was es bedeutet",
+    "analyzeAnother": "Weiteren Vertrag analysieren",
+    "downloadReport": "PDF-Bericht herunterladen",
+    "mock": {
+      "rent": {
+        "summary": "Dies ist ein Standard-Wohnungsmietvertrag. Insgesamt sind die Bedingungen ziemlich üblich, aber es gibt einige Klauseln, auf die du achten solltest.",
+        "clauses": [
+          {
+            "title": "Monatliche Miete & Zahlung",
+            "originalText": "Der Mieter erklärt sich bereit, monatlich 1.500 € zu zahlen, fällig am 1. jedes Monats...",
+            "simpleExplanation": "Du musst jeden Monat 1.500 € zahlen. Wenn du verspätet zahlst, musst du möglicherweise zusätzliches Geld als Strafe zahlen.",
+            "type": "info"
+          },
+          {
+            "title": "Kaution",
+            "originalText": "Eine Kaution in Höhe einer Monatsmiete wird einbehalten...",
+            "simpleExplanation": "Du zahlst 1.500 € im Voraus, die der Vermieter aufbewahrt. Wenn du nichts kaputt machst und alle Mieten zahlst, bekommst du sie beim Auszug zurück.",
+            "type": "good"
+          },
+          {
+            "title": "Verzugsgebühr",
+            "originalText": "Eine Verzugsgebühr von 10 % wird auf alle Zahlungen nach dem 5. erhoben...",
+            "simpleExplanation": "Wenn du nicht bis zum 5. des Monats zahlst, schuldest du zusätzliche 150 €. Das ist ziemlich hoch! Versuche immer pünktlich zu zahlen.",
+            "type": "warning"
+          },
+          {
+            "title": "Instandhaltungspflichten",
+            "originalText": "Der Mieter ist für kleinere Reparaturen unter 100 € verantwortlich...",
+            "simpleExplanation": "Wenn etwas Kleines kaputt geht (z. B. ein verstopfter Abfluss), musst du es selbst reparieren, wenn es weniger als 100 € kostet. Für Größeres zahlt der Vermieter.",
+            "type": "info"
+          }
+        ]
+      },
+      "divorce": {
+        "summary": "Diese Scheidungsvereinbarung regelt die Vermögensaufteilung, das Sorgerecht und Unterhaltszahlungen. Mehrere Klauseln erfordern besondere Aufmerksamkeit.",
+        "clauses": [
+          {
+            "title": "Vermögensaufteilung",
+            "originalText": "Eheliches Vermögen wird gleichmäßig zwischen den Parteien aufgeteilt...",
+            "simpleExplanation": "Alles, was ihr während der Ehe gekauft oder verdient habt, wird 50/50 geteilt. Das umfasst Haus, Autos, Ersparnisse und Altersvorsorge.",
+            "type": "info"
+          },
+          {
+            "title": "Sorgerecht",
+            "originalText": "Gemeinsames Sorgerecht mit Hauptaufenthalt bei Partei A...",
+            "simpleExplanation": "Beide Eltern treffen gemeinsam wichtige Entscheidungen für die Kinder. Die Kinder leben aber hauptsächlich bei einem Elternteil und besuchen den anderen.",
+            "type": "info"
+          },
+          {
+            "title": "Verleumdungsverbot",
+            "originalText": "Keine Partei darf die andere in Gegenwart minderjähriger Kinder herabsetzen...",
+            "simpleExplanation": "Ihr dürft euch vor den Kindern nicht gegenseitig schlechtmachen. Das schützt die Kinder davor, in die Mitte gerissen zu werden.",
+            "type": "good"
+          },
+          {
+            "title": "Unterhaltsänderung",
+            "originalText": "Unterhaltszahlungen können nur durch Gerichtsverfahren geändert werden...",
+            "simpleExplanation": "Wenn ihr die Höhe der Zahlung ändern wollt, müsst ihr zurück vor Gericht. Ihr könnt das nicht einfach privat regeln.",
+            "type": "warning"
+          }
+        ]
+      },
+      "default": {
+        "summary": "Dieser Vertrag enthält mehrere übliche Rechtsbestimmungen. Wir haben die wichtigsten Begriffe identifiziert und unten in einfacher Sprache erklärt.",
+        "clauses": [
+          {
+            "title": "Laufzeit & Dauer",
+            "originalText": "Diese Vereinbarung beginnt am Wirksamkeitsdatum und läuft fort...",
+            "simpleExplanation": "Dieser Teil sagt dir, wie lange der Vertrag läuft. Nach dieser Zeit endet die Vereinbarung, sofern du sie nicht verlängerst.",
+            "type": "info"
+          },
+          {
+            "title": "Kündigungsrechte",
+            "originalText": "Jede Partei kann mit 30 Tagen schriftlicher Kündigung kündigen...",
+            "simpleExplanation": "Wenn du diese Vereinbarung beenden willst, musst du es der anderen Person schriftlich mitteilen und 30 Tage warten.",
+            "type": "good"
+          },
+          {
+            "title": "Vertraulichkeit",
+            "originalText": "Alle ausgetauschten Informationen bleiben vertraulich und werden nicht offengelegt...",
+            "simpleExplanation": "Welche privaten Informationen du auch teilst, die andere Person darf niemandem davon erzählen.",
+            "type": "info"
+          },
+          {
+            "title": "Haftungsbeschränkung",
+            "originalText": "Keine Partei haftet für indirekte, Folge- oder Strafschäden...",
+            "simpleExplanation": "Wenn etwas schiefgeht, kannst du nur auf den tatsächlich entstandenen Schaden klagen — nicht auf Zusatzposten wie emotionalen Stress.",
+            "type": "warning"
+          }
+        ]
+      }
+    }
+  },
+  "Pricing": {
+    "heading": "Einfache, transparente Preise",
+    "subheading": "Wähle den Plan, der zu dir passt. Keine versteckten Gebühren, jederzeit kündbar.",
+    "mostPopular": "Beliebteste Wahl",
+    "guarantee": "30-Tage-Geld-zurück-Garantie. Ohne Wenn und Aber.",
+    "perMonth": "pro Monat",
+    "forever": "für immer",
+    "plans": {
+      "free": {
+        "name": "Kostenlos",
+        "description": "Zum Ausprobieren des Dienstes.",
+        "cta": "Loslegen",
+        "features": [
+          "1 Vertragsanalyse pro Monat",
+          "Erklärung in einfacher Sprache",
+          "PDF-Upload",
+          "Zusammenfassung per E-Mail"
+        ]
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "Für Einzelpersonen mit regelmäßigem Vertragsbedarf.",
+        "cta": "Pro-Testphase starten",
+        "features": [
+          "20 Analysen pro Monat",
+          "Klausel-für-Klausel-Aufschlüsselung",
+          "Erkennung von Warnsignalen",
+          "Alle Dateiformate",
+          "Priorisierte Verarbeitung",
+          "PDF-Berichte"
+        ]
+      },
+      "business": {
+        "name": "Business",
+        "description": "Für Teams und Unternehmen.",
+        "cta": "Vertrieb kontaktieren",
+        "features": [
+          "Unbegrenzte Analysen",
+          "Alles aus Pro",
+          "Team-Zusammenarbeit",
+          "API-Zugang",
+          "Eigenes Branding",
+          "Dedizierter Support"
+        ]
+      }
+    }
+  },
+  "Footer": {
+    "tagline": "Wir machen juristische Dokumente für alle zugänglich, einen Vertrag nach dem anderen.",
+    "product": "Produkt",
+    "company": "Unternehmen",
+    "legal": "Rechtliches",
+    "features": "Funktionen",
+    "pricing": "Preise",
+    "api": "API",
+    "about": "Über uns",
+    "blog": "Blog",
+    "careers": "Karriere",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "security": "Sicherheit",
+    "rights": "© 2026 ContractLess. Alle Rechte vorbehalten."
+  }
+}
